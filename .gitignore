@@ -25,4 +25,8 @@ override.tf.json
 *_override.tf
 *_override.tf.json
 
+## Keys
+terra-key.pub
+terra-key
+
 !example_override.tf
