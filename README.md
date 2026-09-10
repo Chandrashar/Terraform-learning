@@ -95,3 +95,19 @@ admin@ip-172-31-41-56:~$ cat /tmp/chandra-remote-exec.txt
 Chandra Sharma
 ip-172-31-41-56
 Linux ip-172-31-41-56 6.12.74+deb13+1-cloud-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.12.74-2 (2026-03-08) x86_64 GNU/Linux
+
+## added Nginx for each instance from user script
+
+Output:
+
+Nginx is running on ip-172-31-34-188
+Environment information written by user_data
+
+
+## Logs
+
+added apply.sh, instead running terraform apply and approve with 'yes' added apply.sh to auto approve and apply.
+this will preserve execution log in file called terraform-apply.log
+
+
+

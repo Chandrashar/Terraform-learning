@@ -8,7 +8,14 @@ resource "aws_instance" "chan-instance" {
   vpc_security_group_ids = [aws_security_group.chan-security-grp.id]
 
   # Load the common script
-  user_data = file("${path.module}/../install_nginx.sh")
+  #user_data = file("${path.module}/../install_nginx.sh")
+  
+  # Pass the environment name into the script
+  user_data = templatefile("${path.module}/../install_nginx.sh", {
+    environment = var.my_env
+  })
+
+
 
   tags = {
     Name = "${var.my_env}-ec2-terra-instance-${count.index+1}"
