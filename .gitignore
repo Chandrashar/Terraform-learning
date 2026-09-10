@@ -1,28 +1,28 @@
-#gitignore
-
+# ============================================================
 # Terraform
-.terraform/*
+# ============================================================
+
 .terraform/
+**/.terraform/
+
 *.tfstate
-*.tfstate.backup
-*.tfplan
-*.lock.hcl
+*.tfstate.*
+
 crash.log
 crash.*.log
+
+*.tfvars
+*.tfvars.json
+
+*.tfplan
+*.plan
+
+.terraformrc
+terraform.rc
+
 override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
-.terraformrc
-terraform.rc
 
-# SSH Keys (never commit private keys)
-terra-key
-terra-key.pub
-*.pem
-
-# OS
-.DS_Store.terraform/
-.terraform.lock.hcl
-*.tfstate
-*.tfstate.*
+!example_override.tf
