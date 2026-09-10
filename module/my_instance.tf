@@ -1,18 +1,15 @@
 # EC2 Instance
 
 resource "aws_instance" "chan-instance" {
-  #count = 3
   count = var.instance_count
- # for_each = toset(["${var.my_env}-ec2-terra-instance-1","${var.my_env}-ec2-terra-instance-2","${var.my_env}-ec2-terra-instance-3"])
-  #ami = "ami-0e5497a77ef21b5ac" # ubuntu@@
   ami = var.ami_id
-  #instance_type = "t2.micro"
   instance_type   = var.instance_type
   key_name        = aws_key_pair.deployer.key_name # key
-  #security_groups = [aws_security_group.chan-security-grp.name]
   vpc_security_group_ids = [aws_security_group.chan-security-grp.id]
 
- # region = var.region
+  # Load the common script
+  user_data = file("${path.module}/../install_nginx.sh")
+
   tags = {
     Name = "${var.my_env}-ec2-terra-instance-${count.index+1}"
     Environment = var.my_env
@@ -89,7 +86,15 @@ resource "aws_security_group" "chan-security-grp" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
+  
+  # http port for nginx
+    ingress {
+    description = "this is for HTTP"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
   egress {
     description = "This is for Outgoing traffic"
     from_port   = 0

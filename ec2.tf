@@ -44,7 +44,7 @@ resource "aws_security_group" "chan-security-grp" {
 
 resource "aws_instance" "chan-instance" {
   #count = 3
-  for_each = toset(["ec2-terra-instance-1","ec2-terra-instance-2","ec2-terra-instance-3"])
+  for_each = toset(["ec2-terra-instance-1", "ec2-terra-instance-2", "ec2-terra-instance-3"])
   #ami = "ami-0e5497a77ef21b5ac" # ubuntu@@
   ami = var.ec2_ami_id
   #instance_type = "t2.micro"
@@ -64,7 +64,7 @@ resource "aws_instance" "chan-instance" {
     command = "echo ${self.public_ip} >> local-exec.txt"
   }
 
- provisioner "local-exec" {
+  provisioner "local-exec" {
     command = "hostname >> local-exec.txt"
   }
 
