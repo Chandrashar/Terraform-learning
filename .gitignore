@@ -22,4 +22,7 @@ terra-key.pub
 *.pem
 
 # OS
-.DS_Store
+.DS_Store.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
