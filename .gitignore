@@ -6,6 +6,8 @@ terra-key
 terra-key.pub
 *.pem
 *.pub
+,terraform
+.terraform.lock.hcl
 
 # Logs
 *.log
