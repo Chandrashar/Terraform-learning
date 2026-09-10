@@ -1,0 +1,54 @@
+#gitignore
+
+#key
+
+terra-key
+terra-key.pub
+*.pem
+*.pub
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Runtime data / Crash dumps
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories (Never commit these!)
+node_modules/
+jspm_packages/
+web_modules/
+bin/
+obj/
+
+# Debug/Build outputs
+dist/
+build/
+out/
+target/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# IDEs and Text Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Environmental variables / Secrets (Crucial for security)
+.env
+.env.local
+.env.production
+.env.development
+auth.json
+secrets.json
