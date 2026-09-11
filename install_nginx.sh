@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+ENV_NAME="${environment}"
+
 # Detect package manager and install nginx
 if command -v apt-get >/dev/null 2>&1; then
   # Ubuntu / Debian
@@ -97,8 +99,8 @@ echo "Nginx page created for $ENV_NAME on $(date)" >> /var/log/user-data.log
 
 
 # Create a simple identifying page
-echo "<h1>Nginx is running on $(hostname)</h1>" > /var/www/html/index.html
-echo "<p>Environment information written by user_data</p>" >> /var/www/html/index.html
+#echo "<h1>Nginx is running on $(hostname)</h1>" > /var/www/html/index.html
+#echo "<p>Environment information written by user_data</p>" >> /var/www/html/index.html
 
 # Optional: keep a log
-echo "Nginx installed successfully on $(date)" >> /var/log/user-data.log
+#echo "Nginx installed successfully on $(date)" >> /var/log/user-data.log
